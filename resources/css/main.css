@@ -174,7 +174,6 @@ a {
   /*! height: 5000px; */
   background: #f4f4f4;
   width: 100%;
-  display: block;
 }
 
 .content nav {
@@ -216,12 +215,6 @@ footer {
   width: 100%;
   min-height: 100%;
   background: whitesmoke;
-}
-
-.main-content .content-block {
-  background: white;
-  height: 200px;
-  border: 1px solid #e0e0e0;
 }
 
 .content nav ul li {
@@ -362,23 +355,8 @@ input[type = "text"]:focus, input[type = "password"]:focus {
 }
 
 .main-content {
+  display: flex;
   font-size: 18pt;
-}
-
-.main-content #title {
-  font-size: 32pt;
-  text-align: center;
-  margin-bottom: 25px;
-  margin-top: 10px;
-}
-
-.main-content .description {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.main-content .main-desc {
-  padding-bottom: 20px;
 }
 
 .main-content .img-block {
@@ -391,4 +369,17 @@ input[type = "text"]:focus, input[type = "password"]:focus {
 
 .img-block img {
   width: 500px;
+}
+
+
+.main-content .fragment {
+  background: white;
+  height: 200px;
+  width: 600px;
+  border: 1px solid #e0e0e0;
+  border-left: none;
+}
+
+.fragment .title {
+  text-align: center;
 }
