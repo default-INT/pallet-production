@@ -1,0 +1,35 @@
+header {
+    position: relative;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    background: #fff;
+    color: white;
+    font-size: 21pt;
+    z-index: 3;
+    box-shadow: 0 0 20px 5px rgba(0,0,0,.2);
+    justify-content: flex-start;
+    height: 100px;
+    align-items: flex-end;
+}
+
+header .logo {
+    overflow: hidden;
+    height: 70px;
+    margin-left: 20pt;
+    font-size: 42pt;
+    color: white;
+    font-weight: bold;
+    background: #f00;
+}
+
+header .logo * {
+    height: inherit;
+}
+
+header h1 {
+    text-align: left;
+    margin-left: 25px;
+    height: 70px;
+    color: black;
+}

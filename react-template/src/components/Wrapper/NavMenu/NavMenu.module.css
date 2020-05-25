@@ -1,0 +1,44 @@
+.content nav ul #profile * {
+    padding-left: 0;
+}
+
+nav {
+    background: #fff;
+    color: #737373;
+    border-right: 2px solid #e0e0e0;
+    font-size: 20pt;
+    position: relative;
+    height: 100%;
+    display: inline-block;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+
+/*
+  Пример для выбора пункта меню
+*/
+.select {
+    border-left: 4px solid #f00;
+    color: #f00;
+    background: #f4f4f4;
+}
+
+nav a {
+    display: block;
+    padding-left: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    outline: none;
+    transition: .6s ease;
+    overflow: hidden;
+}
+
+nav a:hover {
+    box-shadow: inset 0 0 8px 2px rgba(0,0,0,.2);
+}
+
+nav ul li:hover:not(:first-child) {
+    background: #f4f4f4;
+    /* */
+}

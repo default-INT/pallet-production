@@ -1,0 +1,23 @@
+
+.toggle-btn {
+    background: none;
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    align-self: center;
+    margin-left: 20px;
+}
+
+.toggle-btn span {
+    display: block;
+    width: 25px;
+    height: 6px;
+    background-color: #666;
+    margin: 4px 0;
+    transform-origin: 0 0;
+    transition: .2s ease-in-out;
+}
+
+.toggle-btn:hover span {
+    background: #f00;
+}

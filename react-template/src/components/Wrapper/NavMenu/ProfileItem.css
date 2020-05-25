@@ -1,0 +1,23 @@
+#profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    border-bottom: 2px solid #e0e0e0;
+    text-align: center;
+    color: black;
+    cursor: default;
+}
+
+#profile .profile-icon {
+    overflow: hidden;
+}
+
+#profile .profile-icon img {
+    width: 150px;
+}
+
+#profile .profile-info {
+    padding-top: 20px
+}
