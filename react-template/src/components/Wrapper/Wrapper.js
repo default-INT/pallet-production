@@ -3,8 +3,10 @@ import NavMenu from "./NavMenu/NavMenu";
 import MainContent from "../../pages/MainContent/MainContent";
 import "./Wrapper.css"
 import Route from "react-router-dom/es/Route";
-import AddReport from "../../pages/AddReport/AddReport";
+import Reports from "../../pages/Reports/Reports";
 import Switch from "react-router-dom/es/Switch";
+import {AddReport} from "../../pages/AddReport/AddReport";
+import {RouteReports} from "./RouteReports";
 
 
 /**
@@ -32,7 +34,8 @@ function Wrapper(props) {
                 <NavMenu menuBtnState={props.menuBtnState} />
                 <Switch>
                     <Route exact component={MainContent} path="/"/>
-                    <Route component={AddReport} path="/add-report"/>
+                    <Route exact component={Reports} path="/reports"/>
+                    <Route component={RouteReports} path="/reports/:date"/>
                 </Switch>
 
             </div>

@@ -1,5 +1,13 @@
 .main-content {
-    display: flex;
     font-size: 18pt;
     justify-content: center;
+    display: inline-block;
+    overflow-y: fragments;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    scrollbar-face-color: black;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
 }
+
+.main-content::-webkit-scrollbar { width: 0; }

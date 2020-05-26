@@ -21,7 +21,7 @@ class NavMenu extends React.Component {
             }}>
                 <ProfileItem />
                 <MenuItem path="/" text="Главная" />
-                <MenuItem path="/add-report" text="Добавить отчёт" />
+                <MenuItem path="/reports" text="Отчёты" />
                 <MenuItem path="/storage" text="Склад" />
                 <MenuItem path="/calc-salary" text="Посчитать зарплату" />
                 <MenuItem path="/add-employee" text="Добавить сотрудника" />

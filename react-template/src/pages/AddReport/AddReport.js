@@ -1,21 +1,17 @@
 import React from "react";
-import {ContentFragment} from "../../components/Wrapper/ContentFragment/ContentFragment";
-import "../PageStyles.css"
+import {ContentFragment}
+    from "../../components/Wrapper/ContentFragment/ContentFragment";
+import util from "../../utils";
 
 
-class AddReport extends React.Component {
-
-    /**
-     * TODO: Get from server
-     * @return {*}
-     */
-    render() {
-        return (
-            <section className="main-content">
-                <ContentFragment title="Добавление отчёта" width="100%" height="100%" />
-            </section>
-        )
-    }
-}
-
-export default AddReport
+export const AddReport = props => {
+    const date = new Date(props.date);
+    return (
+    <section className="main-content">
+        <ContentFragment
+            title={"Отчёт за " + util.dateConverter(date)}
+            width="100%"
+            height="130vh"
+        />
+    </section>
+)};

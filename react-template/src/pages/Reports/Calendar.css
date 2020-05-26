@@ -1,0 +1,93 @@
+.calendar {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    border:  2px solid #34495e;
+    margin: 4vh auto;
+    background: #34495e;
+    color: white;
+}
+
+.calendar .head {
+    display: flex;
+    margin: 1rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar .head * {
+    margin: 1vh;
+    font-size: 7vh;
+}
+
+.calendar .week-days {
+    display: flex;
+    justify-content: space-between;
+    background: #34495e;
+    color: white;
+    width: 100%;
+    border-top: 2px solid white;
+}
+
+.calendar .week-days * {
+    display: flex;
+    height: 8vh;
+    width: 5vw;
+    flex-grow: 1;
+    border: 2px solid #34495e;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vh;
+}
+
+.calendar .weeks {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: black;
+    transition: .4s linear;
+}
+
+.calendar .weeks .week-item {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.calendar .weeks .week-item a {
+    display: flex;
+    border: 2px solid #282c34;
+    background: whitesmoke;
+    flex-grow: 1;
+    width: 5vw;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vh;
+    cursor: pointer;
+    transition: .4s ease-in-out;
+}
+
+.calendar .weeks .week-item a:hover {
+    transform: scale(1.1);
+}
+
+.calendar .prev {
+    flex-grow: 1;
+}
+
+.calendar .next {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.calendar a {
+    cursor: pointer;
+    transition: .4s ease;
+}
+
+.calendar a:hover {
+    color: #f00;
+}
