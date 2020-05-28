@@ -1,0 +1,225 @@
+.entries-container {
+    display: flex;
+    margin: 6vh auto;
+    width: 60vw;
+}
+
+.entries-container form {
+    width: 100%;
+    height: 100%;
+}
+
+.employees-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.employees-container label {
+    margin-left: 2vh;
+}
+
+.employees-container .employees {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1vh;
+    border: 3px solid #f4f4f4;
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.employees .employee {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    border-bottom: 3px solid #f4f4f4;
+}
+
+.employee .empl-data  {
+    display: flex;
+    height: 30vh;
+    border-bottom: 2px solid #f4f4f4;
+}
+
+.employee .empl-data .empl-avatar {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding-left: 10px;
+    border-right: 2px solid #f4f4f4;
+}
+
+.employee .empl-data .info {
+    flex-grow: 1;
+}
+
+.empl-data .title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2.4rem;
+}
+
+.empl-data .title * {
+    margin-top: .4vh;
+    margin-bottom: .4vh;
+}
+
+.empl-data .full-name {
+    margin-left: 1vw;
+}
+
+.empl-data .mark {
+    margin-right: 2vw;
+}
+
+.employee .empl-data img {
+    width: 8vw;
+}
+
+.employee .info .other-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.employee .info .other-info .line {
+    display: flex;
+}
+
+.employee .info .other-info .line * {
+    margin-top: 1vh;
+    margin-left: 1vw;
+}
+
+.employee .empl-work .title {
+    margin-top: .5vh;
+    margin-bottom: 1vh;
+}
+
+.empl-work .work-item {
+    display: flex;
+    height: 10vh;
+    border-top: 2px solid #f4f4f4;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.empl-work .work-item select {
+    cursor: pointer;
+}
+
+.empl-work .work-item .empl-income {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+}
+
+.empl-work .work-item * {
+    height: 6vh;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.work-item .delete-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50vh;
+    color: #ffffff;
+    background: #f00;
+    width: 6vh;
+    font-size: 4.5vh;
+    cursor: pointer;
+    transition: .4s linear;
+    border: none;
+    padding-bottom: 2vh;
+}
+
+.work-item .delete-item:hover {
+    color: #f00;
+    background: white;
+}
+
+.work-item.add {
+    justify-content: center;
+    height: 12vh;
+}
+
+.work-item .add-button {
+    background-color: #4CAF50;
+    border: 0 solid #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 7vh;
+    padding: 0 2.5vh 3.5vh;
+    cursor: pointer;
+    border-radius: 80px;
+    transition: .4s linear;
+}
+
+.work-item .add-button:hover {
+    border: 2px solid #4CAF50;
+    color: #4CAF50;
+    background: white;
+}
+
+.work-item label.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+}
+
+.empl-data .delete-empl-btn {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    transition: .4s linear;
+    cursor: pointer;
+    border-left: 0 solid #f4f4f4;
+}
+
+.empl-data .delete-empl-btn:hover {
+    background: #f00;
+    border-left: 2px solid #f4f4f4;
+}
+
+.employees .empl-adder {
+    display: flex;
+    width: 100%;
+}
+
+.employees .empl-adder ul {
+    width: 100%;
+}
+
+.employees .empl-adder li {
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #f4f4f4;
+    cursor: pointer;
+    transition: .4s linear;
+}
+
+.employees .empl-adder li .icon {
+    margin-right: 2vw;
+}
+
+.employees .empl-adder li .full-name {
+    width: 10vw;
+    text-align: left;
+}
+
+.employees .empl-adder li .empl-filter {
+    width: 100%;
+    font-family: sans-serif;
+    text-align: center;
+    height: 10vh;
+    background: none;
+    cursor: pointer;
+}
