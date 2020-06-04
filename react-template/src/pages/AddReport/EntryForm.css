@@ -94,6 +94,8 @@
 .employee .empl-work .title {
     margin-top: .5vh;
     margin-bottom: 1vh;
+    display: flex;
+    justify-content: space-around;
 }
 
 .empl-work .work-item {
@@ -142,7 +144,8 @@
 
 .work-item.add {
     justify-content: center;
-    height: 12vh;
+    height: 4vh;
+    border-top: none;
 }
 
 .work-item .add-button {
@@ -152,11 +155,13 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 7vh;
-    padding: 0 2.5vh 3.5vh;
+    font-size: 3vh;
+    width: 3vh;
     cursor: pointer;
     border-radius: 80px;
     transition: .4s linear;
+    height: auto;
+    font-family: sans-serif;
 }
 
 .work-item .add-button:hover {
@@ -169,7 +174,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3rem;
+    font-size: 1.4rem;
 }
 
 .empl-data .delete-empl-btn {
@@ -222,4 +227,26 @@
     height: 10vh;
     background: none;
     cursor: pointer;
+}
+
+.emplItem.exit.exit-active {
+    animation: empl-item 800ms ease-out forwards;
+}
+
+.emplItem.exit.exit-active {
+    animation: empl-item 800ms ease-in alternate-reverse;
+}
+
+@keyframes emplItem {
+    0% {
+        transform: translateX(0);
+    }
+    30% {
+        opacity: .7;
+        transform: translateX(30px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-200px);
+    }
 }

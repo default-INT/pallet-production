@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import "./Calendar.css";
 import {NavLink} from "react-router-dom";
 import util from "../../utils"
+import {WeekDays} from "./WeekDays";
+import {CalendarHeader} from "./CalendarHeader";
 
 
 const styleNotMonthDate = {
@@ -14,13 +16,6 @@ const styleNowDate = {
     color: "white"
 };
 
-const months = [
-    'Январь', 'Февраль', 'Март',
-    'Апрель', 'Май', 'Июнь',
-    'Июль', 'Август', 'Сентябрь',
-    'Октябрь', 'Ноябрь', 'Декабрь'
-];
-
 /**
  * EN
  * Return url for select date.
@@ -29,6 +24,29 @@ const months = [
  * @return {string}
  */
 const getPathReport = date => `/reports/${date.toJSON()}`;
+
+const SelectDate = ({date}) => (
+    <NavLink to={getPathReport(date)}
+             style={styleNowDate}>
+        <div key={date}>
+            {date.getDate()}
+        </div>
+    </NavLink>
+);
+
+const DefaultDate = ({date}) => (
+    <NavLink to={getPathReport(date)}>
+        <div key={date}>{date.getDate()}</div>
+    </NavLink>
+);
+
+const NotMonthDate = ({date}) => (
+    <NavLink to={getPathReport(date)} style={styleNotMonthDate}>
+        <div key={date}>
+            {date.getDate()}
+        </div>
+    </NavLink>
+);
 
 
 /**
@@ -47,10 +65,7 @@ function getDaysForCalendar(selectMonth, selectYear) {
     const nowDate = new Date();
     nowDate.setHours(0, 0, 0, 0);
 
-    let startMonthDate = new Date(
-        selectYear,
-        selectMonth,
-        1);
+    let startMonthDate = new Date(selectYear, selectMonth, 1);
 
     const days = [[]];
 
@@ -59,21 +74,17 @@ function getDaysForCalendar(selectMonth, selectYear) {
         pastDate.setDate(0);
         while (pastDate.getDay() !== 0) {
             days[0].push(
-                <NavLink to={getPathReport(pastDate)} style={styleNotMonthDate}>
-                    <div key={pastDate}>
-                        {pastDate.getDate()}
-                    </div>
-                </NavLink>
+                <NotMonthDate date={new Date(pastDate)}/>
             );
             pastDate.setDate(pastDate.getDate() - 1);
         }
     }
     days[0].reverse();
     do {
+        const inDate = new Date(startMonthDate);
         days[0].push(
-            <NavLink to={getPathReport(startMonthDate)}>
-                <div key={startMonthDate}>{startMonthDate.getDate()}</div>
-            </NavLink>
+            util.eqDate(startMonthDate, nowDate) ? <SelectDate date={inDate} />
+            : <DefaultDate date={inDate}/>
         );
         startMonthDate.setDate(startMonthDate.getDate() + 1);
     } while (startMonthDate.getDay() !== 1);
@@ -81,36 +92,16 @@ function getDaysForCalendar(selectMonth, selectYear) {
 
     for (let i = 1; i < 6; i++) {
         for (let j = 0; j < 7; j++) {
-            if (startMonthDate.getMonth() !== selectMonth) {
-                days[i].push(
-                    <NavLink to={getPathReport(startMonthDate)}
-                             style={styleNotMonthDate}>
-                        <div key={startMonthDate}>
-                            {startMonthDate.getDate()}
-                        </div>
-                    </NavLink>
-                );
-            } else if (util.eqDate(startMonthDate, nowDate)) {
-                days[i].push(
-                    <NavLink to={getPathReport(startMonthDate)}
-                             style={styleNowDate}>
-                        <div key={startMonthDate}>
-                            {startMonthDate.getDate()}
-                        </div>
-                    </NavLink>
-                );
-            } else {
-                days[i].push(
-                    <NavLink to={getPathReport(startMonthDate)}>
-                        <div key={startMonthDate}>{startMonthDate.getDate()}</div>
-                    </NavLink>
-                );
-            }
+            const inDate = new Date(startMonthDate);
+            days[i].push(
+                startMonthDate.getMonth() !== selectMonth ? <NotMonthDate date={inDate} />
+                : (util.eqDate(startMonthDate, nowDate) ? <SelectDate date={inDate} />
+                : <DefaultDate date={inDate} />)
+            );
             startMonthDate.setDate(startMonthDate.getDate() + 1);
         }
         days.push([])
     }
-
     return days;
 }
 
@@ -122,58 +113,16 @@ function getDaysForCalendar(selectMonth, selectYear) {
  * @constructor
  */
 export const Calendar = () => {
+    const nowDate = new Date();
     const [selectMonth, setSelectMonth] = useState({
-        monthId: 4,
-        year: 2020
+        monthId: nowDate.getMonth(),
+        year: nowDate.getFullYear()
     });
     const days = getDaysForCalendar(selectMonth.monthId, selectMonth.year);
 
     return (<div className="calendar">
-        <div className="head">
-            <div className="prev">
-                <a onClick={() => setSelectMonth({
-                    monthId: selectMonth.monthId === 0 ? 11 : --selectMonth.monthId,
-                    year: selectMonth.monthId === 0 ? --selectMonth.year
-                        : selectMonth.year
-                })}>{'<'}</a>
-            </div>
-            <div className="month">
-                {months[selectMonth.monthId]}
-            </div>
-            <div className="year">
-                {selectMonth.year}
-            </div>
-            <div className="next">
-                <a onClick={() => setSelectMonth({
-                    monthId: selectMonth.monthId === 11 ? 0 : ++selectMonth.monthId,
-                    year: selectMonth.monthId === 11 ? ++selectMonth.year
-                                                   : selectMonth.year
-                })}>{'>'}</a>
-            </div>
-        </div>
-        <div className="week-days">
-            <div className="title-day">
-                ПН
-            </div>
-            <div className="title-day">
-                ВТ
-            </div>
-            <div className="title-day">
-                СР
-            </div>
-            <div className="title-day">
-                ЧТ
-            </div>
-            <div className="title-day">
-                ПТ
-            </div>
-            <div className="title-day" style={{color: "#f00"}}>
-                СБ
-            </div>
-            <div className="title-day" style={{color: "#f00"}}>
-                ВС
-            </div>
-        </div>
+        <CalendarHeader selectMonth={selectMonth} onSelectMonth={setSelectMonth}/>
+        <WeekDays />
         <div className="weeks">
             <div className="week-item">
                 {days[0]}

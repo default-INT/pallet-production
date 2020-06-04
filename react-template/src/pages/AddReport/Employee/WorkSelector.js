@@ -1,4 +1,5 @@
 import React from "react";
+import {AddWork} from "./AddWork";
 
 
 /**
@@ -15,7 +16,8 @@ export const WorkSelector = props => {
     return (
         <div className="empl-work">
             <div className="title">
-                Выберите тип занятости
+                <div className="text">Выберите тип занятости</div>
+                <AddWork/>
             </div>
             <div className="work-item">
                 <select name="work" id="">
@@ -30,14 +32,6 @@ export const WorkSelector = props => {
                 <button type="button" className="delete-item">
                     &times;
                 </button>
-            </div>
-            <div className="work-item add">
-                <a className="add-button">
-                    +
-                </a>
-                <label className="title">
-                    Добавить занятость
-                </label>
             </div>
         </div>
     )

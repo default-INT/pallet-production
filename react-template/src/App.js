@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Wrapper from "./components/Wrapper/Wrapper";
 import {Header} from "./components/Header/Header";
+import {FirebaseState} from "./context/firebase/FirebaseState";
 
 class App extends React.Component {
     constructor(props) {
@@ -21,10 +22,10 @@ class App extends React.Component {
 
     render() {
       return (
-      <React.Fragment>
+      <FirebaseState>
           <Header onMenuBtnClick={this.handleMenuBtnClick}/>
           <Wrapper menuBtnState={this.state.menuBtn}/>
-      </React.Fragment>)
+      </FirebaseState>)
     }
 }
 

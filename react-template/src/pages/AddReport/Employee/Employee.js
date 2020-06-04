@@ -23,7 +23,7 @@ export const Employee = props => {
                       age="41"
                 />
                 <div className="delete-empl-btn">
-                    <img src="/resources/img/trash.png" width="50" alt=""/>
+                    <img src="/resources/img/trash.png" width="20" alt=""/>
                 </div>
             </div>
             <WorkSelector/>

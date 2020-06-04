@@ -1,6 +1,7 @@
 import React from "react";
 import "./EntryForm.css"
 import {EmployeesSelector} from "./EmployeesSelector";
+import {ReportState} from "../../context/report/ReportState";
 
 
 /**
@@ -18,13 +19,15 @@ import {EmployeesSelector} from "./EmployeesSelector";
  */
 export const EntryForm = (props) => {
     return (
-        <div className="entries-container">
-            <form action="">
-                <div className="employees-container">
-                    <label>Сотрудники</label>
-                    <EmployeesSelector/>
-                </div>
-            </form>
-        </div>
+        <ReportState>
+            <div className="entries-container">
+                <form action="">
+                    <div className="employees-container">
+                        <label>Сотрудники</label>
+                        <EmployeesSelector/>
+                    </div>
+                </form>
+            </div>
+        </ReportState>
     )
 };

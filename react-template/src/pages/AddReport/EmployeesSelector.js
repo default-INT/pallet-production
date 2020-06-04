@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useContext, useEffect} from "react";
 import {Employee} from "./Employee/Employee";
 import {EmployeeAdder} from "./EmployeeAdder";
+import {FirebaseContext} from "../../context/firebase/firebaseContext";
 
 /**
  * EN
@@ -13,24 +14,13 @@ import {EmployeeAdder} from "./EmployeeAdder";
  * @constructor
  */
 export const EmployeesSelector = () => {
-    const employees = [
-        {
-            id: 1,
-            fullName: 'Стольный С.В.',
-            avatarLink: '/resources/img/logo192.png',
-            mainPosition: 'Сбойщик',
-            salaryInDay: 30,
-            age: 17
-        },
-        {
-            id: 2,
-            fullName: 'Деккер М.В.',
-            avatarLink: '/resources/img/logo192.png',
-            mainPosition: 'Сбойщик',
-            salaryInDay: 25,
-            age: 20
-        }
-    ];
+    const {loading, employees, fetchEmployees} = useContext(FirebaseContext);
+    useEffect(() => {
+        fetchEmployees();
+        // esLint-disable-next-line
+        console.log(employees);
+    }, []);
+
     return (
         <div className="employees">
             <Employee/>

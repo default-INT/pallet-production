@@ -5,7 +5,6 @@ import "./Wrapper.css"
 import Route from "react-router-dom/es/Route";
 import Reports from "../../pages/Reports/Reports";
 import Switch from "react-router-dom/es/Switch";
-import {AddReport} from "../../pages/AddReport/AddReport";
 import {RouteReports} from "./RouteReports";
 
 
