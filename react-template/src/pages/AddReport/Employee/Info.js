@@ -1,4 +1,5 @@
 import React from "react";
+import {Stars} from "./Stars";
 
 
 /**
@@ -18,7 +19,7 @@ export const Info = props => (
                 {props.fullName}
             </div>
             <div className="mark">
-                5
+                <Stars/>
             </div>
         </div>
         <div className="other-info">
@@ -48,4 +49,4 @@ export const Info = props => (
             </div>
         </div>
     </div>
-)
+);

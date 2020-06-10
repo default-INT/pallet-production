@@ -15,10 +15,6 @@
     width: 100%;
 }
 
-.employees-container label {
-    margin-left: 2vh;
-}
-
 .employees-container .employees {
     display: flex;
     flex-direction: column;
@@ -60,10 +56,6 @@
     font-size: 2.4rem;
 }
 
-.empl-data .title * {
-    margin-top: .4vh;
-    margin-bottom: .4vh;
-}
 
 .empl-data .full-name {
     margin-left: 1vw;
@@ -73,7 +65,7 @@
     margin-right: 2vw;
 }
 
-.employee .empl-data img {
+.employee .empl-data .empl-avatar img {
     width: 8vw;
 }
 
@@ -177,18 +169,31 @@
     font-size: 1.4rem;
 }
 
-.empl-data .delete-empl-btn {
+.empl-data .controls-empl {
+    display: flex;
+    flex-direction: column;
+}
+
+.empl-data .delete-empl-btn, .empl-data .edit-empl-btn {
     display: flex;
     align-items: center;
     height: 100%;
     transition: .4s linear;
     cursor: pointer;
+    padding: 2vh;
     border-left: 0 solid #f4f4f4;
+}
+
+.delete-empl-btn img, .empl-data img {
+    width: 5vh;
+}
+
+.empl-data .edit-empl-btn:hover {
+    background: #ffab00;
 }
 
 .empl-data .delete-empl-btn:hover {
     background: #f00;
-    border-left: 2px solid #f4f4f4;
 }
 
 .employees .empl-adder {
@@ -227,6 +232,20 @@
     height: 10vh;
     background: none;
     cursor: pointer;
+}
+
+.search-container {
+    position: absolute;
+}
+
+.emplItem {
+    width: auto;
+    background: whitesmoke;
+    border: 1px white solid;
+}
+
+.emplItem .full-name {
+    width: auto;
 }
 
 .emplItem.exit.exit-active {

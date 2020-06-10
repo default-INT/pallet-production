@@ -17,14 +17,12 @@ export const EmployeesSelector = () => {
     const {loading, employees, fetchEmployees} = useContext(FirebaseContext);
     useEffect(() => {
         fetchEmployees();
-        // esLint-disable-next-line
-        console.log(employees);
     }, []);
 
     return (
         <div className="employees">
-            <Employee/>
             <EmployeeAdder employees={employees}/>
+            <Employee/>
         </div>
     );
 };

@@ -16,35 +16,45 @@ import {TransitionGroup, CSSTransition} from "react-transition-group"
  */
 export const EmployeeAdder = props => {
     const [employees, setEmployees] = useState([]);
+    const [innerWidth, setInnerWidth] = useState(0);
+
     function loadEmployees(event) {
+        setInnerWidth(document.querySelector('.empl-filter').clientWidth);
+
         let textInput = event.target.value;
-        console.log(props.employees);
         setEmployees(
             props.employees.filter(employee =>
                 employee.fullName.toUpperCase().includes(textInput.toUpperCase())
                 || textInput === '')
         )
     }
-
+    const search = (<li>
+        <input type="text"
+               className="empl-filter"
+               placeholder="Добавить сотрудника"
+               onChange={event => loadEmployees(event)}
+               onFocus={event => loadEmployees(event)}
+               onBlur={() => {
+                   setInnerWidth(document.querySelector('.empl-filter').clientWidth);
+                   setEmployees([])
+               }}
+        />
+    </li>);
+    const setSize = () => {
+        document.querySelector('.search-container').style.width = innerWidth + 'px';
+    };
     return (
         <div className="empl-adder">
             <TransitionGroup component="ul">
-                <li>
-                    <input type="text"
-                           className="empl-filter"
-                           placeholder="Добавить сотрудника"
-                           onChange={event => loadEmployees(event)}
-                           onFocus={event => loadEmployees(event)}
-                           onBlur={() => setEmployees([])}
-                    />
-                </li>
+                {search}
+                <div className="search-container" onLoad={() => setSize()}>
                 {employees.map(employee => (
                     <CSSTransition
                         key={employee.id}
                         className={'emplItem'}
-                        timeout={800}
+                        timeout={1000}
                     >
-                        <li>
+                        <li className='emplItem' id={employee.id}>
                             <div className="icon">
                                 <img src={employee.avatarLink} width="50" alt=""/>
                             </div>
@@ -54,6 +64,7 @@ export const EmployeeAdder = props => {
                         </li>
                     </CSSTransition>
                 ))}
+                </div>
             </TransitionGroup>
         </div>
     )
